@@ -5,7 +5,7 @@ package com.picotto86.laciana;
  */
 public class FeedItem {
     private String title;
-    private String date;
+    private String link;
 
     public String getTitle() {
         return title;
@@ -16,4 +16,11 @@ public class FeedItem {
     }
 
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
 }

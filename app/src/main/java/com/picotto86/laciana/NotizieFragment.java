@@ -129,11 +129,19 @@ public class NotizieFragment extends android.app.Fragment {
 
                     feedItemList.add(item);
 
-                    Element link=campi.getElementById("a.href");
+                    Elements link=campi.getElementsByTag("a");
+
+                    if(link != null) {
+
+                        //Log.d("d:","link "+link.attr("href"));
+
+                        item.setLink(link.attr("href"));
+                    }
+
 
                     //Element link=campi.select("a").first();
 
-                    //Log.d("d:","link "+link.text());
+
 
                     //item.setTitle(campi.text().replaceAll("LINK",""));
                     item.setTitle(campi.toString());
