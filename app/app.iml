@@ -93,6 +93,8 @@
     <orderEntry type="library" exported="" name="picasso-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="1_picasso-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="2_picasso-2.4.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-6.1.71" level="project" />
+    <orderEntry type="library" exported="" name="google-play-services" level="project" />
   </component>
 </module>
 
