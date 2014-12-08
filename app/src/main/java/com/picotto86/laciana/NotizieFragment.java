@@ -1,6 +1,10 @@
 package com.picotto86.laciana;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,9 +49,22 @@ public class NotizieFragment extends android.app.Fragment {
 
         mRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(rootView.getContext(), new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
-                        Log.d("D:","toccato"+feedItemList.get(position).getTitle());
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Log.d("D:", "toccato" + feedItemList.get(position).getTitle());
+
+                        /*Fragment frag=new WebFragment(feedItemList.get(position).getLink());
+                        if (frag != null) {
+                            FragmentManager fragmentManager = getFragmentManager();
+                            fragmentManager.beginTransaction().replace(R.id.content_frame, frag).commit();
+                        }
+                        */
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(feedItemList.get(position).getLink()));
+                        startActivity(i);
+
                     }
+
                 })
         );
 
@@ -147,7 +164,7 @@ public class NotizieFragment extends android.app.Fragment {
                         item.setLink(link.attr("href"));
                     }
 
-                    item.setTitle(campi.text().replaceAll("LINK",""));
+                    item.setTitle(campi.text().replaceAll("LINK", ""));
 
                 }
 
