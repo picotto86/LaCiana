@@ -43,6 +43,14 @@ public class NotizieFragment extends android.app.Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
+        mRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(rootView.getContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        Log.d("D:","toccato"+feedItemList.get(position).getTitle());
+                    }
+                })
+        );
+
         final String url = "http://www.tabaccaiofurbo.it/cianas.php";
 
         new AsyncHttpTask().execute(url);
@@ -129,7 +137,8 @@ public class NotizieFragment extends android.app.Fragment {
 
                     feedItemList.add(item);
 
-                    Elements link=campi.getElementsByTag("a");
+                    Element link=null;
+                    link=campi.getElementsByTag("a").first();
 
                     if(link != null) {
 
@@ -138,19 +147,10 @@ public class NotizieFragment extends android.app.Fragment {
                         item.setLink(link.attr("href"));
                     }
 
-
-                    //Element link=campi.select("a").first();
-
-
-
-                    //item.setTitle(campi.text().replaceAll("LINK",""));
-                    item.setTitle(campi.toString());
+                    item.setTitle(campi.text().replaceAll("LINK",""));
 
                 }
+
             }
-
-
-
-
     }
 }

@@ -27,12 +27,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<FeedListRowHolder> {
     public FeedListRowHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_row, null);
         FeedListRowHolder mh = new FeedListRowHolder(v);
-        mh.title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("d:","toccato");
-            }
-        });
+
         return mh;
     }
 
