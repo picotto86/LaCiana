@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.ads.*;
 
@@ -45,6 +46,13 @@ public class NotizieFragment extends android.app.Fragment {
 
         mRecyclerView=(RecyclerView) rootView.findViewById(R.id.recycler_view);
 
+
+
+
+        AdView adView = (AdView)rootView.findViewById(R.id.adView);
+
+
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
         mRecyclerView.addOnItemTouchListener(
@@ -68,12 +76,7 @@ public class NotizieFragment extends android.app.Fragment {
                 })
         );
 
-        AdView adView = (AdView)rootView.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("TEST_DEVICE_ID")
-                .build();
-        adView.loadAd(adRequest);
+
 
         final String url = "http://www.tabaccaiofurbo.it/cianas.php";
 
