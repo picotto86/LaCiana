@@ -7,7 +7,7 @@
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ff0"
+        android:background="#4ef8f800"
         android:orientation="vertical" >
     </RelativeLayout>
 
@@ -16,7 +16,7 @@
         android:layout_width="290dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#f0f"
+        android:background="#ff219ff8"
         android:choiceMode="singleChoice"
         android:clickable="true"
         android:divider="@null"
