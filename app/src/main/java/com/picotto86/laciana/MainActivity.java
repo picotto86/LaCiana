@@ -50,7 +50,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             // on first time display view for first nav item
-            selectItem(0);
+            selectItem(1);
         }
     }
 

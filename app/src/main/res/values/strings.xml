@@ -2,9 +2,11 @@
 <resources>
 
     <string name="app_name">LaCiana</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="banner_ad_unit_id"> ca-app-pub-8190137666568349/6373699117</string>
+    <string name="version">1.0.0</string>
 
 </resources>

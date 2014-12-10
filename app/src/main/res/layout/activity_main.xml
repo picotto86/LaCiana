@@ -7,7 +7,6 @@
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#4ef8f800"
         android:orientation="vertical" >
     </RelativeLayout>
 
@@ -16,10 +15,10 @@
         android:layout_width="290dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#ff219ff8"
+        android:background="#ff64b5f6"
         android:choiceMode="singleChoice"
         android:clickable="true"
-        android:divider="@null"
-        android:dividerHeight="0dp"
+        android:divider="#ff010304"
+        android:dividerHeight="1dp"
         android:scrollbars="none" />
     </android.support.v4.widget.DrawerLayout>
