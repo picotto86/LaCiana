@@ -76,14 +76,14 @@ public class NotizieFragment extends android.app.Fragment {
                 })
         );
 
-
-
         final String url = "http://www.tabaccaiofurbo.it/cianas.php";
 
         new AsyncHttpTask().execute(url);
 
         return rootView;
     }
+
+
 
     public class AsyncHttpTask extends AsyncTask<String, Void, Integer> {
 

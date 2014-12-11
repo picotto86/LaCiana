@@ -2,6 +2,7 @@ package com.picotto86.laciana;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -20,11 +21,12 @@ public class MainActivity extends ActionBarActivity {
     ActionBarDrawerToggle drawerToggle;
     private ListView mDrawerList;
     private ArrayAdapter<String> navigationDrawerAdapter;
-    private String[] leftSliderData = {"Home", "Notizie", "Contattaci", "About"};
+    private String[] leftSliderData = {"Notizie", "Contattaci", "About"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -50,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             // on first time display view for first nav item
-            selectItem(1);
+            selectItem(0);
         }
     }
 
@@ -79,18 +81,19 @@ public class MainActivity extends ActionBarActivity {
 
         switch (position) {
 
-            case 0:
+            /*case 0:
                 Log.d("d:","home");
                 fragment = new HomeFragment();
 
                 break;
-            case 1:
+                */
+            case 0:
                 fragment = new NotizieFragment();
                 break;
-            case 2:
+            case 1:
                 fragment = new ContattiFragment();
                 break;
-            case 3:
+            case 2:
                 fragment = new AboutFragment();
                 break;
 
