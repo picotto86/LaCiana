@@ -20,7 +20,7 @@ public class SplashScreenActivity extends Activity {
     // Your interstitial ad unit ID.
     private static final String AD_UNIT_ID = "ca-app-pub-8190137666568349/6254117915";
 
-    private InterstitialAd interstitial;
+    public InterstitialAd interstitial;
     private Timer waitTimer;
     private AdRequest adRequest;
     private boolean interstitialCanceled = false;
@@ -40,10 +40,7 @@ public class SplashScreenActivity extends Activity {
             public void onAdLoaded() {
                 // If the interstitial was canceled due to a timeout or an app being sent to the background,
                 // don't show the interstitial.
-                if (!interstitialCanceled) {
-                    waitTimer.cancel();
-                    interstitial.show();
-                }
+
             }
 
             @Override
@@ -53,6 +50,11 @@ public class SplashScreenActivity extends Activity {
             }
         });
         interstitial.loadAd(adRequest);
+
+        if (!interstitialCanceled) {
+            waitTimer.cancel();
+            interstitial.show();
+        }
 
         waitTimer = new Timer();
         waitTimer.schedule(new TimerTask() {
