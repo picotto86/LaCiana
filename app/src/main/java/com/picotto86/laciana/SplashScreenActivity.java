@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.*;
 
 
 import java.util.Timer;
@@ -28,19 +26,23 @@ public class SplashScreenActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ImageView image = new ImageView(this);
-        image.setImageResource(R.drawable.splash_img);
-        setContentView(image);
+
+        setContentView(R.layout.activity_splash_screen);
+
 
         interstitial = new InterstitialAd(this);
         interstitial.setAdUnitId(AD_UNIT_ID);
-        adRequest=new AdRequest.Builder().addTestDevice("AdRequest.DEVICE_ID_EMULATOR").addTestDevice("3B223EFC4B79E5D51A0A45BDDF0C8C09").build();
+        adRequest=new AdRequest.Builder().build();
+        interstitial.loadAd(adRequest);
         interstitial.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
                 // If the interstitial was canceled due to a timeout or an app being sent to the background,
                 // don't show the interstitial.
-
+                if (!interstitialCanceled) {
+                    waitTimer.cancel();
+                    displayInterstitial();
+                }
             }
 
             @Override
@@ -49,12 +51,7 @@ public class SplashScreenActivity extends Activity {
                 startMainActivity();
             }
         });
-        interstitial.loadAd(adRequest);
 
-        if (!interstitialCanceled) {
-            waitTimer.cancel();
-            interstitial.show();
-        }
 
         waitTimer = new Timer();
         waitTimer.schedule(new TimerTask() {
@@ -107,6 +104,12 @@ public class SplashScreenActivity extends Activity {
         // TODO Auto-generated method stub
 
         super.onDestroy();
+    }
+
+    public void displayInterstitial() {
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
     }
 
 

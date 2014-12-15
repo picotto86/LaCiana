@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
+import com.google.android.gms.ads.*;
 
 public class AdFragment extends Fragment {
     private AdView mAdView;
@@ -28,8 +26,6 @@ public class AdFragment extends Fragment {
         // get test ads on a physical device. e.g.
         // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("3B223EFC4B79E5D51A0A45BDDF0C8C09")
                 .build();
 
         // Start loading the ad in the background.
@@ -52,8 +48,9 @@ public class AdFragment extends Fragment {
     @Override
     public void onResume() {
         // TODO Auto-generated method stub
-        super.onResume();
         mAdView.resume();
+        super.onResume();
+
 
     }
 
@@ -61,8 +58,9 @@ public class AdFragment extends Fragment {
     @Override
     public void onPause() {
         // TODO Auto-generated method stub
+        mAdView.pause();
         super.onPause();
 
-        mAdView.pause();
+
     }
 }

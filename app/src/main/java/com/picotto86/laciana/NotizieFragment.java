@@ -46,12 +46,7 @@ public class NotizieFragment extends android.app.Fragment {
 
         mRecyclerView=(RecyclerView) rootView.findViewById(R.id.recycler_view);
 
-
-
-
         AdView adView = (AdView)rootView.findViewById(R.id.adView);
-
-
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
