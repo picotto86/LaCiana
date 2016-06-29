@@ -167,6 +167,7 @@ public class NotizieFragment extends android.app.Fragment {
                         //Log.d("d:","link "+link.attr("href"));
 
                         item.setLink(link.attr("href"));
+                        item.setLink(item.getLink().replace(" ",""));
                     }
 
                     item.setTitle(campi.text().replaceAll("LINK", ""));
